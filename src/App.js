@@ -12,17 +12,28 @@ class App extends Component {
             input: ''
         }
     }
-    handleChange = () => {
-        fetch(`http://www.mapquestapi.com/geocoding/v1/address?key=${mapQuestKey}&location=1600+Pennsylvania+Ave+NW,Washington,DC,20500`)
-            .then(response => response.json())
-            .then(data => console.log(data.results[0].locations[0].latLng))
-            .catch(err => console.log(err));
+    handleChange = (event) => {
+        this.setState({ input: event.target.value })
     };
+
+    onSubmit = () => {
+        //get api request from input here
+        //1600+Pennsylvania+Ave+NW,Washington,DC,20500
+        var latLng;   
+        fetch(`http://www.mapquestapi.com/geocoding/v1/address?key=${mapQuestKey}&location=${this.state.input}`)
+            .then(response => response.json())
+            .then(data => latLng = data.results[0].locations[0].latLng)
+            .then(() => console.log(latLng))
+            .catch(err => console.log(err));
+
+        console.log(latLng); 
+    }
 
     render() {
         return (
             <div>
                 <Navbar />
+                { this.handleChange() }
                 <Searchbar onChange={this.handleChange} />
             </div>
         );
