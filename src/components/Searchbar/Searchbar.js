@@ -3,13 +3,12 @@ import React from 'react'
 const Searchbar = () => {
     return (
         <div className="pa4-l">
-            <form className="bg-light-red mw7 center pa4 br2-ns ba b--black-10">
-                <fieldset className="cf bn ma0 pa0">
+                <fieldset className="cf bn ma0 pa0 w-50 center">
                     <legend className="pa0 f5 f4-ns mb3 black-80">Sign up for our newsletter</legend>
                     <div className="cf">
                         <label className="clip" htmlFor="email-address">Email Address</label>
                         <input
-                            className="f6 f5-l input-reset bn fl black-80 bg-white pa3 lh-solid w-100 w-75-m w-80-l br2-ns br--left-ns"
+                            className="f6 f5-l input-reset fl black-80 bg-white pa3 lh-solid w-100 w-75-m w-80-l br4-ns br--left-ns ba"
                             placeholder="Your Email Address" type="text" name="email-address" value=""
                             id="email-address" />
                         <input
@@ -17,7 +16,6 @@ const Searchbar = () => {
                             type="submit" value="Subscribe" />
                     </div>
                 </fieldset>
-            </form>
         </div>
     );
 };
