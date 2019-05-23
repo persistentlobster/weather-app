@@ -24,7 +24,6 @@ class App extends Component {
         //get api request from input here
         //1600+Pennsylvania+Ave+NW,Washington,DC,20500
         let latLong;
-        let weatherData;
         // fetch(`http://www.mapquestapi.com/geocoding/v1/address?key=${mapQuestKey}&location=${this.state.input}`)
         //     .then(response => response.json())
         //     .then(data => latLong = data.results[0].locations[0].latLng)
@@ -41,14 +40,12 @@ class App extends Component {
                 .catch(err => console.log(err));
             
             latLong = jsonMap.results[0].locations[0].latLng;
-            console.log(latLong);
-            
+
             const jsonWeather = await fetch(weatherURL + latLong.lat + ',' + latLong.lng)
                 .then(response => response.json())
                 .catch(error => console.error(error));
 
             this.setState({ weatherData: jsonWeather });
-            weatherData = jsonWeather.hourly.summary;
             console.log(this.state.weatherData);
         }
         request();
