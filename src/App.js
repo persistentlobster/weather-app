@@ -21,22 +21,18 @@ class App extends Component {
         //get api request from input here
         //1600+Pennsylvania+Ave+NW,Washington,DC,20500
         var latLng;
-        this.setState({ input: '6380 ne cherry dr' });
         fetch(`http://www.mapquestapi.com/geocoding/v1/address?key=${mapQuestKey}&location=${this.state.input}`)
             .then(response => response.json())
             .then(data => latLng = data.results[0].locations[0].latLng)
             .then(() => console.log(latLng))
             .catch(err => console.log(err));
-
-        // console.log(latLng);
     };
 
     render() {
         return (
-            <div>
+            <div className="App">
                 <Navbar />
-                { this.onSubmit() }
-                <Searchbar onChange={this.handleChange} />
+                <Searchbar onChange={this.handleChange} onSubmit={this.onSubmit} />
             </div>
         );
     }
