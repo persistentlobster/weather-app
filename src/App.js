@@ -40,7 +40,7 @@ class App extends Component {
                     .catch(error => console.error(error));
                 this.setState({ weatherData: jsonWeather });
             } else {
-                this.setState({ weatherData: {} });
+                this.setState({ weatherData: { badLoc: true } });
             }
             console.log(this.state.weatherData);
         }
