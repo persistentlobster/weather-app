@@ -19,7 +19,7 @@ class App extends Component {
 
     handleChange = (event) => {
         this.setState({ input: event.target.value })
-    }
+    };
 
     onSubmit = () => {
         let latLong;
@@ -29,10 +29,11 @@ class App extends Component {
             const jsonMap = await fetch(`http://www.mapquestapi.com/geocoding/v1/address?key=${mapQuestKey}&location=${this.state.input}`)
                 .then(response => response.json())
                 .catch(err => console.log(err));
-            
-            latLong = jsonMap.results[0].locations[0].latLng;
-            accuracy = jsonMap.results[0].locations[0].geocodeQualityCode.charAt(3);
-            console.log(accuracy);
+
+            if (jsonMap.info.statuscode !== 400) {
+                latLong = jsonMap.results[0].locations[0].latLng;
+                accuracy = jsonMap.results[0].locations[0].geocodeQualityCode.charAt(3);
+            }
 
             if (accuracy === 'A' || accuracy === 'B') {
                 const jsonWeather = await fetch(weatherURL + latLong.lat + ',' + latLong.lng)
@@ -42,10 +43,9 @@ class App extends Component {
             } else {
                 this.setState({ weatherData: { badLoc: true } });
             }
-            console.log(this.state.weatherData);
-        }
+        };
         request();
-    }
+    };
 
     render() {
         return (
