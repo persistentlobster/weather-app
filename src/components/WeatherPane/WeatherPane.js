@@ -27,9 +27,7 @@ class WeatherPane extends Component {
                 <p>Please enter a valid location.</p>
             )
         } else if (!this.isEmpty(weatherData)) {
-            return (
-                this.handleValidWeather(weatherData)
-            );
+            return this.handleValidWeather(weatherData);
         } else {
             return (null)
         }
