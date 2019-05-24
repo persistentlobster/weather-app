@@ -11,6 +11,15 @@ class WeatherPane extends Component {
         return true;
     };
 
+    handleValidWeather = (weatherData) => {
+        return (
+            <div>
+                <h1>{weatherData.currently.temperature}°</h1>
+            </div>
+        );
+
+    };
+
     renderWeatherPane = () => {
         let { weatherData } = this.props;
         if (weatherData.badLoc) {
@@ -19,9 +28,7 @@ class WeatherPane extends Component {
             )
         } else if (!this.isEmpty(weatherData)) {
             return (
-                <div>
-                    <h1>{weatherData.currently.temperature}°</h1>
-                </div>
+                this.handleValidWeather(weatherData)
             );
         } else {
             return (null)
