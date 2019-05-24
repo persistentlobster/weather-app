@@ -24,7 +24,7 @@ class WeatherPane extends Component {
         let { weatherData } = this.props;
         if (weatherData.badLoc) {
             return (
-                <p>Please enter a valid location.</p>
+                <p className="red">Please enter a valid location.</p>
             )
         } else if (!this.isEmpty(weatherData)) {
             return this.handleValidWeather(weatherData);
