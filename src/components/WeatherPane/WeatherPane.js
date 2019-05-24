@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
+import Skycons from 'react-skycons'
 
 class WeatherPane extends Component {
+
+    iconSize = {
+        height: '40%',
+        width: '40%'
+    };
 
     //Helper function
     isEmpty = (obj) => {
@@ -13,9 +19,16 @@ class WeatherPane extends Component {
 
     handleValidWeather = (weatherData) => {
         return (
-            <div>
-                <h1>{weatherData.currently.temperature}°</h1>
+            <div className="w-50 center ba flex">
+                <Skycons className="icon-size"
+                         color='black'
+                         icon='PARTLY_CLOUDY_DAY'
+                         autoplay={true}
+                         style={this.iconSize}
+                />
+                <p className="f1-ns">{weatherData.currently.temperature.toPrecision(2)}°</p>
             </div>
+
         );
 
     };
