@@ -3,12 +3,11 @@ import Skycons from 'react-skycons'
 
 class WeatherPane extends Component {
 
-    iconSize = {
-        height: '40%',
-        width: '40%'
-    };
+    // iconSize = {
+    //     height: '100%',
+    //     width: '100%'
+    // };
 
-    //Helper function
     isEmpty = (obj) => {
         for(var key in obj) {
             if(obj.hasOwnProperty(key))
@@ -19,18 +18,32 @@ class WeatherPane extends Component {
 
     handleValidWeather = (weatherData) => {
         return (
-            <div className="w-50 center ba flex">
-                <Skycons className="icon-size"
-                         color='black'
-                         icon='PARTLY_CLOUDY_DAY'
-                         autoplay={true}
-                         style={this.iconSize}
-                />
-                <p className="f1-ns">{weatherData.currently.temperature.toPrecision(2)}°</p>
+            <div className="center flex flex-column flex-row-l justify-between ph3 ph4-l pv5 w-70">
+                <div className="w-100 w-33-l ph4-l mb5 mb0-l ba">
+                    <div className="img">
+                        <Skycons className="icon-size"
+                            color='black'
+                            icon={weatherData.currently.icon.toUpperCase().replace(/-/g, '_')}
+                            autoplay={true}
+                            // style={this.iconSize}
+                        />
+                    </div>
+                </div>
+                <div className="w-100 w-33-l ph4-l mb5 mb0-l ba">
+                    <h1>{weatherData.currently.temperature.toPrecision(2)}°</h1>
+                    <p>Feels like: {weatherData.currently.apparentTemperature.toPrecision(2)}°</p>
+                    <p>
+                        Hi: {weatherData.daily.data[0].temperatureHigh.toPrecision(2)}°&nbsp;
+                        Low: {weatherData.daily.data[0].temperatureLow.toPrecision(2)}°
+                    </p>
+                </div>
+                <div className="w-100 w-33-l ph4-l mb5 mb0-l ba">
+                    <p>Example Detail: Value</p>
+                    <p>Example Detail: Value</p>
+                    <p>Example Detail: Value</p>
+                </div>
             </div>
-
         );
-
     };
 
     renderWeatherPane = () => {
