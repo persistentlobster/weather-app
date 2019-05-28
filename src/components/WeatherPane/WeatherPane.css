@@ -1,5 +1,9 @@
-.foo {
-    margin-top: 14px;
+.mainTemp {
+    margin-top: 6px;
     margin-bottom: 18px;
-    font-size: 2.8em;
+    font-size: 3.4em;
+}
+
+.details {
+    padding-top: 2px;
 }
