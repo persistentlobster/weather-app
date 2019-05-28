@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import Searchbar from './components/Searchbar/Searchbar';
 import WeatherPane from './components/WeatherPane/WeatherPane';
+import DailyForecast from './components/DailyForecast/DailyForecast';
 import './App.css';
 
 const key = 'ac5d624a201bb2a2c6c0af0421abfe0e';
@@ -53,6 +54,7 @@ class App extends Component {
                 <Navbar />
                 <Searchbar onChange={this.handleChange} onSubmit={this.onSubmit} />
                 <WeatherPane weatherData={this.state.weatherData} />
+                <DailyForecast weatherData={this.state.weatherData} />
             </div>
         );
     }
