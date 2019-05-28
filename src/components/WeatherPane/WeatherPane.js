@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Skycons from 'react-skycons'
+import "./WeatherPane.css"
 
 class WeatherPane extends Component {
 
@@ -30,7 +31,7 @@ class WeatherPane extends Component {
                     </div>
                 </div>
                 <div className="w-100 w-33-l ph4-l mb5 mb0-l ba">
-                    <h1>{weatherData.currently.temperature.toPrecision(2)}°</h1>
+                    <h1 className="foo">{weatherData.currently.temperature.toPrecision(2)}°</h1>
                     <p>Feels like: {weatherData.currently.apparentTemperature.toPrecision(2)}°</p>
                     <p>
                         Hi: {weatherData.daily.data[0].temperatureHigh.toPrecision(2)}°&nbsp;
@@ -38,6 +39,7 @@ class WeatherPane extends Component {
                     </p>
                 </div>
                 <div className="w-100 w-33-l ph4-l mb5 mb0-l ba">
+                    <p>Example Detail: Value</p>
                     <p>Example Detail: Value</p>
                     <p>Example Detail: Value</p>
                     <p>Example Detail: Value</p>
