@@ -21,7 +21,8 @@ class DailyForecast extends Component {
         let days = 7, forecast = [], forecastContainer = [];
         for (let i = 0; i < days; i++) {
             // get the days for each forecast from the epoch time and shorten day to 3 letters
-            let forecastDay = moment.unix(weatherData.daily.data[i].time).format('dddd');
+            // add 7 hours to time received by dark sky due to offset of timezone
+            let forecastDay = moment.unix(weatherData.daily.data[i].time + 7 * 60 * 60).format('dddd');
             forecastDay = forecastDay.slice(0, 3);
             // create card for one single day
             forecast.push(<article className="mw4 center bg-white br2 mv2 b--black-10 pl3 pr3 pt2">
