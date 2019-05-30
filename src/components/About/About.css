@@ -19,7 +19,8 @@
 }
 
 .tachyons-logo {
-    height: 30vmin;
+    height: 20vmin;
+    padding-bottom: 2em;
 }
 
 .darksky-logo {
