@@ -17,7 +17,7 @@ class App extends Component {
             input: '',
             weatherData: {},
             location: '',
-            route: 'about'
+            route: 'home'
         }
     }
 
