@@ -37,7 +37,7 @@ class App extends Component {
         let accuracy;
 
         const request = async () => {
-            const jsonMap = await fetch(`http://www.mapquestapi.com/geocoding/v1/address?key=${mapQuestKey}&location=${this.state.input}`)
+            const jsonMap = await fetch(`https://www.mapquestapi.com/geocoding/v1/address?key=${mapQuestKey}&location=${this.state.input}`)
                 .then(response => response.json())
                 .catch(err => console.log(err));
 
