@@ -74,7 +74,7 @@ class App extends Component {
     render() {
         const { route } = this.state;
         return (
-            <div className="App">
+            <div className="App background-gradient">
                 <Navbar onRouteChange={this.onRouteChange} />
                 {   route === 'home'
                     ?

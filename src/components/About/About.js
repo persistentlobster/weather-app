@@ -52,7 +52,7 @@ const About = () => {
             <a href="https://momentjs.com/" className="f3-ns tracked mb2 no-underline">Moment.js</a>
             <p className="mb5">A JavaScript library for parsing, validating, manipulating, and formatting dates.</p>
             <Skycons className="icon-size mt2"
-                     color='white'
+                     color='black'
                      icon={'RAIN'}
                      autoplay={true}
                      style={iconSize}
