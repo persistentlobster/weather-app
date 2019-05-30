@@ -3,7 +3,7 @@ import React from 'react'
 const Searchbar = ({ onChange, onSubmit }) => {
     return (
         <div className="pa4-l">
-            <form class="mw6 center pa4">
+            <form class="mw6 center pa4 pt5">
                 <fieldset className="cf bn ma0 pa0 w-100 center">
                     <legend className="pa0 f5 f4-ns mb3 black-80 tl">Enter an address</legend>
                     <div className="cf">
