@@ -5,6 +5,7 @@ import moment from 'moment';
 
 class DailyForecast extends Component {
 
+    // Check for empty object
     isEmpty = (obj) => {
         for(var key in obj) {
             if(obj.hasOwnProperty(key))
@@ -25,7 +26,7 @@ class DailyForecast extends Component {
             // add 7 hours to time received by dark sky due to offset of timezone
             forecastDay = moment.unix(weatherData.daily.data[i].time + timezoneOffset).format('ddd');
             forecastDate = moment.unix(weatherData.daily.data[i].time + timezoneOffset).format('MM/DD');
-            // create card for one single day
+            // Create card for one single day
             forecast.push(
                 <article className="mw4 center bg-white br2 mv2 b--black-10 pl3 pr3 pt2 ba card">
                 <div className="tc">
@@ -42,7 +43,7 @@ class DailyForecast extends Component {
                 </div>
             </article>);
         }
-        // container for all cards
+        // Container for all cards
         forecastContainer.push(<div><h1>7 Day Forecast</h1>
             <div className="w-80-ns flex flex-wrap center">{forecast}</div>
         </div>);
@@ -52,10 +53,10 @@ class DailyForecast extends Component {
 
     renderDailyForecast = () => {
         let { weatherData } = this.props;
-        if (!this.isEmpty(weatherData)) {
-            return this.handleDailyForecast(weatherData);
-        } else {
+        if (this.isEmpty(weatherData) || weatherData.badLoc) {
             return (null)
+        } else {
+            return this.handleDailyForecast(weatherData);
         }
     };
 
