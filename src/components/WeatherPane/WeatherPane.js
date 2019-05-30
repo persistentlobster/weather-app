@@ -21,10 +21,11 @@ class WeatherPane extends Component {
         return (decVal * 100).toFixed(0);
     };
 
-    handleValidWeather = (weatherData) => {
+    handleValidWeather = (weatherData, location) => {
         return (
             <div className="center flex flex-column flex-row-l justify-between ph3 ph4-l pv5 w-60 ">
-                <div className="w-100 w-33-l ph4-l mb5 mb0-l bg-white br3 mr2">
+                <h1>{location}</h1>
+                <div className="mainIcon w-100 w-33-l ph4-l mb5 mb0-l bg-white br3 mr2">
                     <div className="img">
                         <Skycons className="icon-size mt2"
                             color='black'
@@ -48,19 +49,20 @@ class WeatherPane extends Component {
                     <p><b>Precipitation:</b> {this.toPercent(weatherData.currently.precipProbability)}%</p>
                     <p><b>Wind:</b> {weatherData.currently.windSpeed}&nbsp;mph</p>
                     <p><b>UV Index:</b> {weatherData.currently.uvIndex}</p>
+                    {console.log(location)}
                 </div>
             </div>
         );
     };
 
     renderWeatherPane = () => {
-        let { weatherData } = this.props;
+        let { weatherData, location } = this.props;
         if (weatherData.badLoc) {
             return (
                 <p className="red">Please enter a valid location.</p>
             )
         } else if (!this.isEmpty(weatherData)) {
-            return this.handleValidWeather(weatherData);
+            return this.handleValidWeather(weatherData, location);
         } else {
             return (null)
         }

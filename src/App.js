@@ -16,6 +16,7 @@ class App extends Component {
         this.state = {
             input: '',
             weatherData: {},
+            location: '',
             route: 'about'
         }
     }
@@ -46,11 +47,24 @@ class App extends Component {
             }
 
             if (accuracy === 'A' || accuracy === 'B') {
+                let street, city, state;
+                let address = "";
                 const jsonWeather = await fetch(weatherURL + latLong.lat + ',' + latLong.lng)
                     .then(response => response.json())
                     .catch(error => console.error(error));
                 this.setState({ weatherData: jsonWeather });
+                
+                street = jsonMap.results[0].locations[0].street;
+                city = jsonMap.results[0].locations[0].adminArea5;
+                state = jsonMap.results[0].locations[0].adminArea3;
+           
+                if (street !== "") {
+                    address = street + ', ';
+                }
+                address += city + ', ' + state;
+                this.setState({ location: address });
             } else {
+                this.setState({ weatherData: ''});
                 this.setState({ weatherData: { badLoc: true } });
             }
         };
@@ -66,7 +80,7 @@ class App extends Component {
                     ?
                         <div>
                             <Searchbar onChange={this.handleChange} onSubmit={this.onSubmit}/>
-                            <WeatherPane weatherData={this.state.weatherData}/>
+                            <WeatherPane weatherData={this.state.weatherData} location={this.state.location}/>
                             <DailyForecast weatherData={this.state.weatherData}/>
                         </div>
                     :
