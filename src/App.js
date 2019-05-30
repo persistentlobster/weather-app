@@ -3,6 +3,7 @@ import Navbar from './components/Navbar/Navbar';
 import Searchbar from './components/Searchbar/Searchbar';
 import WeatherPane from './components/WeatherPane/WeatherPane';
 import DailyForecast from './components/DailyForecast/DailyForecast';
+import About from './components/About/About';
 import './App.css';
 
 const key = 'ac5d624a201bb2a2c6c0af0421abfe0e';
@@ -14,14 +15,22 @@ class App extends Component {
         super(props);
         this.state = {
             input: '',
-            weatherData: {}
+            weatherData: {},
+            route: 'about'
         }
     }
 
+    // Routing handler
+    onRouteChange = (route) => {
+        this.setState({ route: route });
+    };
+
+    // Form change handler
     handleChange = (event) => {
         this.setState({ input: event.target.value })
     };
 
+    // Request to Dark Sky and MapQuest APIs for weather and location data
     onSubmit = () => {
         let latLong;
         let accuracy;
@@ -49,12 +58,22 @@ class App extends Component {
     };
 
     render() {
+        const { route } = this.state;
         return (
             <div className="App">
-                <Navbar />
-                <Searchbar onChange={this.handleChange} onSubmit={this.onSubmit} />
-                <WeatherPane weatherData={this.state.weatherData} />
-                <DailyForecast weatherData={this.state.weatherData} />
+                <Navbar onRouteChange={this.onRouteChange} />
+                {   route === 'home'
+                    ?
+                        <div>
+                            <Searchbar onChange={this.handleChange} onSubmit={this.onSubmit}/>
+                            <WeatherPane weatherData={this.state.weatherData}/>
+                            <DailyForecast weatherData={this.state.weatherData}/>
+                        </div>
+                    :
+                        <div>
+                            <About />
+                        </div>
+                }
             </div>
         );
     }

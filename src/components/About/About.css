@@ -1,0 +1,32 @@
+.react-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 30vmin;
+    pointer-events: none;
+    color: black;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.mapquest-logo {
+    height: 12vmin;
+}
+
+.tachyons-logo {
+    height: 30vmin;
+}
+
+.darksky-logo {
+    height: 25vmin;
+}
+
+.moment-logo {
+    height: 26vmin;
+}
+
