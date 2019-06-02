@@ -31,6 +31,20 @@ class App extends Component {
         this.setState({ input: event.target.value })
     };
 
+    // Fetches coordinates from geolocation and submit form
+    onLocation = () => {
+        alert('Fetching location...');
+
+        navigator.geolocation.getCurrentPosition((position) => {
+            this.setState({ 
+                input: position.coords.latitude + ', ' + position.coords.longitude
+            }, () => {
+                this.onSubmit();
+                }
+            );
+        });
+    };
+
     // Request to Dark Sky and MapQuest APIs for weather and location data
     onSubmit = () => {
         let latLong;
@@ -79,7 +93,7 @@ class App extends Component {
                 {   route === 'home'
                     ?
                         <div>
-                            <Searchbar onChange={this.handleChange} onSubmit={this.onSubmit}/>
+                            <Searchbar onChange={this.handleChange} onSubmit={this.onSubmit} onLocation={this.onLocation}/>
                             <WeatherPane weatherData={this.state.weatherData} location={this.state.location}/>
                             <DailyForecast weatherData={this.state.weatherData}/>
                         </div>
