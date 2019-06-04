@@ -46,7 +46,10 @@ class App extends Component {
     };
 
     // Request to Dark Sky and MapQuest APIs for weather and location data
-    onSubmit = () => {
+    onSubmit = (event) => {
+        if (event != undefined) {
+            event.preventDefault(); // Prevent page from refreshing on submit
+        }
         let latLong;
         let accuracy;
 
