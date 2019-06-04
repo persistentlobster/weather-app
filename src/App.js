@@ -3,6 +3,7 @@ import Navbar from './components/Navbar/Navbar';
 import Searchbar from './components/Searchbar/Searchbar';
 import WeatherPane from './components/WeatherPane/WeatherPane';
 import DailyForecast from './components/DailyForecast/DailyForecast';
+import ClipLoader from 'react-spinners/ClipLoader';
 import About from './components/About/About';
 import './App.css';
 
@@ -17,7 +18,8 @@ class App extends Component {
             input: '',
             weatherData: {},
             location: '',
-            route: 'home'
+            route: 'home',
+            isLoading: false
         }
     }
 
@@ -33,8 +35,7 @@ class App extends Component {
 
     // Fetches coordinates from geolocation and submit form
     onLocation = () => {
-        alert('Fetching location...');
-
+        this.setState( { isLoading: true });
         navigator.geolocation.getCurrentPosition((position) => {
             this.setState({ 
                 input: position.coords.latitude + ', ' + position.coords.longitude
@@ -47,12 +48,15 @@ class App extends Component {
 
     // Request to Dark Sky and MapQuest APIs for weather and location data
     onSubmit = (event) => {
-        if (event != undefined) {
-            event.preventDefault(); // Prevent page from refreshing on submit
-        }
         let latLong;
         let accuracy;
 
+        this.setState( { isLoading: true });
+
+        // Prevent page from refreshing on submit
+        if (event !== undefined) {
+            event.preventDefault();
+        }
         const request = async () => {
             const jsonMap = await fetch(`https://www.mapquestapi.com/geocoding/v1/address?key=${mapQuestKey}&location=${this.state.input}`)
                 .then(response => response.json())
@@ -79,7 +83,7 @@ class App extends Component {
                     address = street + ', ';
                 }
                 address += city + ', ' + state;
-                this.setState({ location: address });
+                this.setState({ location: address, isLoading: false });
             } else {
                 this.setState({ weatherData: ''});
                 this.setState({ weatherData: { badLoc: true } });
@@ -89,14 +93,19 @@ class App extends Component {
     };
 
     render() {
-        const { route } = this.state;
+        const { route, isLoading } = this.state;
         return (
             <div className="App background-gradient">
                 <Navbar onRouteChange={this.onRouteChange} />
                 {   route === 'home'
                     ?
                         <div>
-                            <Searchbar onChange={this.handleChange} onSubmit={this.onSubmit} onLocation={this.onLocation}/>
+                            <div className="flex justify-center items-center">
+                                <Searchbar onChange={this.handleChange} onSubmit={this.onSubmit} onLocation={this.onLocation}/>
+                                <ClipLoader
+                                    loading={isLoading}
+                                />
+                            </div>
                             <WeatherPane weatherData={this.state.weatherData} location={this.state.location}/>
                             <DailyForecast weatherData={this.state.weatherData}/>
                         </div>
