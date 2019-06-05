@@ -3,7 +3,6 @@ import Navbar from './components/Navbar/Navbar';
 import Searchbar from './components/Searchbar/Searchbar';
 import WeatherPane from './components/WeatherPane/WeatherPane';
 import DailyForecast from './components/DailyForecast/DailyForecast';
-import ClipLoader from 'react-spinners/ClipLoader';
 import About from './components/About/About';
 import './App.css';
 
@@ -100,12 +99,7 @@ class App extends Component {
                 {   route === 'home'
                     ?
                         <div>
-                            <div className="flex justify-center items-center">
-                                <Searchbar onChange={this.handleChange} onSubmit={this.onSubmit} onLocation={this.onLocation}/>
-                                <ClipLoader
-                                    loading={isLoading}
-                                />
-                            </div>
+                            <Searchbar onChange={this.handleChange} onSubmit={this.onSubmit} onLocation={this.onLocation} isLoading={isLoading}/>
                             <WeatherPane weatherData={this.state.weatherData} location={this.state.location}/>
                             <DailyForecast weatherData={this.state.weatherData}/>
                         </div>

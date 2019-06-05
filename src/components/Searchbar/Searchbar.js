@@ -1,11 +1,12 @@
 import React from 'react'
+import ClipLoader from 'react-spinners/ClipLoader';
 
-const Searchbar = ({ onChange, onSubmit, onLocation }) => {
+const Searchbar = ({ onChange, onSubmit, onLocation, isLoading }) => {
 
     return (
-        <div className="pa4-l">
+        <div className="pa4-l h5">
             <form className="mw6 center pa4 pt5">
-                <fieldset className="cf bn ma0 pa0 w-100 center">
+                <fieldset className="cf bn pa0 w-100 center">
                     <legend className="pa0 f5 f4-ns mb3 black-80 tl">Enter an address</legend>
                     <div className="cf">
                         <div className="mb4 mb0-ns flex justify-center">
@@ -22,6 +23,12 @@ const Searchbar = ({ onChange, onSubmit, onLocation }) => {
                     <div className="tl">
                         <a className="fas fa-map-marker-alt f5 pt3 dark-blue no-underline" href="#0" onClick={onLocation}> Use my location</a>
                     </div>
+                    <ClipLoader
+                        sizeUnit={"px"}
+                        size={40}
+                        color={'#000'}
+                        loading={isLoading}
+                    />
                 </fieldset>
             </form>
         </div>
