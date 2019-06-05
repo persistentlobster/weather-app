@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Skycons from 'react-skycons'
-import "./WeatherPane.css"
+import "./WeatherPane.css";
 
 class WeatherPane extends Component {
 
@@ -23,6 +23,7 @@ class WeatherPane extends Component {
         return (decVal * 100).toFixed(0);
     };
 
+    // Build weather cards for current, valid weather
     handleValidWeather = (weatherData, location) => {
         return (
             <div>
@@ -59,6 +60,7 @@ class WeatherPane extends Component {
         );
     };
 
+    // Check if location is valid and render it if so
     renderWeatherPane = () => {
         let { weatherData, location } = this.props;
         if (weatherData.badLoc) {

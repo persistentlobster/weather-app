@@ -8,7 +8,7 @@ const Searchbar = ({ onChange, onSubmit, onLocation, isLoading }) => {
             <form className="mw6 center pa4 pt5">
                 <fieldset className="cf bn pa0 w-100 center">
                     <legend className="pa0 f5 f4-ns mb3 black-80 tl">Enter an address</legend>
-                    <div className="cf">
+                    <div className="cf" style={{ maxHeight: '50px' }}>
                         <div className="mb4 mb0-ns flex justify-center">
                             <input placeholder="Ex: Portland, OR"
                                    className="f6 f5-l input-reset bn fl black-80 bg-white pa3 lh-solid w-100 w-75-m w-80-l br2-ns br--left-ns"

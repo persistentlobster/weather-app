@@ -6,6 +6,7 @@ import momentjs from './momentjs.svg'
 import tachyons from './tachyons.png';
 import darksky from './darksky.svg';
 import mapquest from './mapquest.svg';
+import ClipLoader from 'react-spinners/ClipLoader';
 
 const iconSize = {
     height: '50%',
@@ -50,15 +51,28 @@ const About = () => {
             <p className="mb4">A web API for geocoding locations.</p>
             <img src={momentjs} className="moment-logo mb4" alt="moment.js logo"/><br/>
             <a href="https://momentjs.com/" className="f3-ns tracked mb2 no-underline">Moment.js</a>
-            <p className="mb5">A JavaScript library for parsing, validating, manipulating, and formatting dates.</p>
-            <Skycons className="icon-size mt2"
-                     color='black'
-                     icon={'RAIN'}
-                     autoplay={true}
-                     style={iconSize}
-            /><br/>
+            <p className="mb4">A JavaScript library for parsing, validating, manipulating, and formatting dates.</p>
+            <Skycons
+                className="icon-size mt2"
+                color='black'
+                icon={'RAIN'}
+                autoplay={true}
+                style={iconSize}
+            />
+            <br/>
             <a href="https://github.com/roadmanfong/react-skycons" className="f3-ns tracked mb2 no-underline">Skycons</a>
-            <p className="mb5">A set of animated weather icons ported to React components.</p>
+            <p className="mb4">A set of animated weather icons ported to React components.</p>
+            <div className="mb3">
+                <ClipLoader
+                sizeUnit={"em"}
+                size={7}
+                color={'#000'}
+                loading={true}
+                />
+                <br/>
+            </div>
+            <a href="https://github.com/davidhu2000/react-spinners" className="f3-ns tracked mb2 no-underline">React Spinners</a>
+            <p className="mb5">A collection of loading spinners for React.</p>
         </div>
     );
 };
