@@ -84,7 +84,7 @@ class App extends Component {
                 address += city + ', ' + state;
                 this.setState({ location: address, isLoading: false });
             } else {
-                this.setState({ weatherData: ''});
+                this.setState({ weatherData: '', isLoading: false });
                 this.setState({ weatherData: { badLoc: true } });
             }
         };
