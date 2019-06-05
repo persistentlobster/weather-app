@@ -4,7 +4,7 @@ import ClipLoader from 'react-spinners/ClipLoader';
 const Searchbar = ({ onChange, onSubmit, onLocation, isLoading }) => {
 
     return (
-        <div className="pa4-l h5">
+        <div className="pa4-l h5 mt2">
             <form className="mw6 center pa4 pt5">
                 <fieldset className="cf bn pa0 w-100 center">
                     <legend className="pa0 f5 f4-ns mb3 black-80 tl">Enter an address</legend>
