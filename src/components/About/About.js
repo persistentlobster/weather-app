@@ -5,6 +5,7 @@ import logo from './logo.svg';
 import momentjs from './momentjs.svg'
 import tachyons from './tachyons.png';
 import darksky from './darksky.svg';
+import sunLogo from '../Navbar/sun.png';
 import mapquest from './mapquest.svg';
 import ClipLoader from 'react-spinners/ClipLoader';
 
@@ -15,7 +16,7 @@ const iconSize = {
 
 const About = () => {
     return(
-        <div className="w-50-ns center mt4-ns pt5">
+        <div className="w-50-ns center mt4-ns pt3">
             <h1 className="f2-ns tracked">ABOUT</h1>
             <p>A web application for viewing the weather in any U.S. city or address.</p>
             <p>This web page was created by Micah Burnett and Michael Kelley for CS465P - Full Stack Web Development.</p>
@@ -62,6 +63,14 @@ const About = () => {
             <br/>
             <a href="https://github.com/roadmanfong/react-skycons" className="f3-ns tracked mb2 no-underline">Skycons</a>
             <p className="mb4">A set of animated weather icons ported to React components.</p>
+            <img src={sunLogo} className="sun-logo mb4 mt3" alt="website logo" />
+            <br/>
+            <a href="https://www.flaticon.com/free-icon/sun_1164903" className="f3-ns tracked mb2 no-underline">Flaticon</a>
+            <p className="mb5">
+                Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik </a> 
+                from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com </a> 
+                is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+            </p>
             <div className="mb3">
                 <ClipLoader
                 sizeUnit={"em"}

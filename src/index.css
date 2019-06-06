@@ -20,3 +20,8 @@ code {
 body {
   font-family: 'Quicksand', sans-serif;
 }
+
+/* For website logo in navbar */
+.logoFont {
+  font-family: 'Signika', sans-serif;
+}

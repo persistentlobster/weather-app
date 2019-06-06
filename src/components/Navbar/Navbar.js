@@ -1,16 +1,26 @@
 import React from 'react';
+import logo from './sun.png'
 
-const bgColor = {
-    background: '#027CB7'
+const bgStyle = {
+    background: '#027CB7',
+    maxHeight: '50px'
+};
+
+const iconSize = {
+    height: '45px',
+    width: '45px'
 };
 
 const Navbar = ({ onRouteChange }) => {
     return (
-        <nav className="nav db dt-l w-100 border-box pa3 ph5-l flex fixed top-0 z-1" style={bgColor}>
-            <a className="db dtc-l v-mid white link dim w-100 w-25-l tc tl-l mb2 mb0-l tracked" href="# " title="Home">Weather App</a>
-            <div className="db dtc-l v-mid w-100 w-75-l tc tr-l tracked">
-                <a onClick={ () => onRouteChange('home')} className="link dim white f6 f5-l dib mr3 mr4-l" href="# " title="Home">Home</a>
-                <a onClick={ () => onRouteChange('about')} className="link dim white f6 f5-l dib mr3 mr4-l" href="# " title="About">About</a>
+        <nav className="dt w-100 border-box ph5-ns" style={bgStyle}>
+            <a className="dtc v-mid mid-gray link dim w-50 pl2" href="# " title="Home">
+                <img src={logo} className="dib w2 br-100 fl pt2" style={iconSize} alt="Site Logo"></img>
+                <p className="logoFont link dim white f4 f4-ns dib fl pl3">CIRRUS</p>
+            </a>
+            <div className="dtc v-mid w-50 tr">
+                <a onClick={ () => onRouteChange('home')} className="link dim white f6 f5-ns dib mr3 mr4-ns" href="# " title="Home">Home</a>
+                <a onClick={ () => onRouteChange('about')} className="link dim white f6 f5-ns dib mr3 mr4-ns" href="# " title="About">About</a>
             </div>
         </nav>
     );
