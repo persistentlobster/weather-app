@@ -14,7 +14,7 @@ const iconSize = {
 const Navbar = ({ onRouteChange }) => {
     return (
         <nav className="dt w-100 border-box ph5-ns fixed z-1" style={bgStyle}>
-            <a className="dtc v-mid mid-gray link dim w-50 pl2" href="# " title="Home">
+            <a onClick={ () => onRouteChange('home')} className="dtc v-mid mid-gray link dim w-50 pl2" href="# " title="Home">
                 <img src={logo} className="dib w2 br-100 fl pt2" style={iconSize} alt="Site Logo"></img>
                 <p className="logoFont link dim white f4 f4-ns dib fl pl3">CIRRUS</p>
             </a>
