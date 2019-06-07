@@ -29,7 +29,7 @@ class WeatherPane extends Component {
             <div>
                 <h1>Current weather for {location}</h1>
                 <div className="center flex flex-column flex-row-l justify-between ph3 ph4-l pv3 w-60">
-                    <div className="mainIcon w-100 w-33-l ph4-l mb5 mb0-l bg-white br3 mr2 card">
+                    <div className="mainIcon w-100 w-33-l ph4-l mb4 mb0-l bg-white br3 mr2 card">
                         <div className="img">
                             <Skycons className="icon-size mt2"
                                      color='black'
@@ -40,7 +40,7 @@ class WeatherPane extends Component {
                         </div>
                         <p>{weatherData.currently.summary}</p>
                     </div>
-                    <div className="w-100 w-33-l ph4-l mb5 mb0-l bg-white br3 mr2 card">
+                    <div className="w-100 w-33-l ph4-l mb4 mb0-l bg-white br3 mr2 card">
                         <h1 className="mainTemp">{weatherData.currently.temperature.toPrecision(2)}°</h1>
                         <p>Feels like: {weatherData.currently.apparentTemperature.toPrecision(2)}°</p>
                         <p>
@@ -48,7 +48,7 @@ class WeatherPane extends Component {
                             Low: {weatherData.daily.data[0].temperatureLow.toPrecision(2)}°
                         </p>
                     </div>
-                    <div className="details w-100 w-33-l ph4-l mb5 mb0-l bg-white br3 mr2 card">
+                    <div className="details w-100 w-33-l ph4-l mb4 mb0-l bg-white br3 mr2 card">
                         <p><b>Humidity:</b> {this.toPercent(weatherData.currently.humidity)}%</p>
                         <p><b>Precipitation:</b> {this.toPercent(weatherData.currently.precipProbability)}%</p>
                         <p><b>Wind:</b> {weatherData.currently.windSpeed}&nbsp;mph</p>

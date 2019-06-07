@@ -16,8 +16,8 @@ const iconSize = {
 
 const About = () => {
     return(
-        <div className="w-50-ns center mt4-ns pt3">
-            <h1 className="f2-ns tracked">ABOUT</h1>
+        <div className="w-50-ns center pt5">
+            <h1 className="f2-ns tracked pt4">ABOUT</h1>
             <p>A web application for viewing the weather in any U.S. city or address.</p>
             <p>This web page was created by Micah Burnett and Michael Kelley for CS465P - Full Stack Web Development.</p>
             <p>Check us out on GitHub!</p>

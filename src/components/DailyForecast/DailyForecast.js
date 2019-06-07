@@ -28,7 +28,7 @@ class DailyForecast extends Component {
             forecastDate = moment.unix(weatherData.daily.data[i].time + timezoneOffset).format('MM/DD');
             // Create card for one single day
             forecast.push(
-                <article className="mw4 center bg-white br2 mv2 b--black-10 pl3 pr3 pt2 ba card">
+                <article className="mw4 center bg-white br2 mv3 b--black-10 pl3 pr3 pt2 ba card">
                 <div className="tc">
                     <Skycons className="icon-size"
                              color='black'
@@ -44,8 +44,8 @@ class DailyForecast extends Component {
             </article>);
         }
         // Container for all cards
-        forecastContainer.push(<div><h1>7 Day Forecast</h1>
-            <div className="w-80-ns flex flex-wrap center">{forecast}</div>
+        forecastContainer.push(<div className="mt4"><h1>7 Day Forecast</h1>
+            <div className="w-80-ns flex flex-wrap center mb4">{forecast}</div>
         </div>);
         return forecastContainer;
 
